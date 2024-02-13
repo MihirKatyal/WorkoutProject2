@@ -25,3 +25,16 @@ def encrypt(input_file_path, output_file_path, key):
             output_file.write(ciphertext)
     except IOError as e:
         print(f"An error occurred while processing files: {e}")
+
+def decrypt(input_file_path, output_file_path, key):
+    
+    try:
+        with open(input_file_path, 'r', encoding='utf-8') as input_file:
+            plaintext = input_file.read()
+
+        ciphertext = switch_message(plaintext, key)
+
+        with open(output_file_path, 'w', encoding='utf-8') as output_file:
+            output_file.write(ciphertext)
+    except IOError as e:
+        print(f"An error occurred while processing files: {e}")
