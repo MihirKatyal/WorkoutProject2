@@ -15,4 +15,22 @@ def procces_arg(args):
     except ValueError:
         print("Key must be an integer")
         sys.exit(1)
-        
+    
+    if mode not in ["-e", "-d"]:
+        print("Invalid mode")
+        sys.exit(1)
+
+    return mode, input_file, output_file, key
+
+def main():
+    mode, intput_file, output_file, key = procces_arg(sys.argv)
+
+    #validate the key
+    try:
+        file_size = validate_key(key, intput_file) #implement this to check the file size vs key
+    except InvalidKeyExecption as e:
+        print(f"Invalid key: {e}")
+        sys.exit(1)
+    except FileNotFoundError:
+        print(f"Input File {intput_file} not found")
+        sys.exit(1)
