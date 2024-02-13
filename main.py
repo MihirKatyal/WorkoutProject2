@@ -27,26 +27,26 @@ def process_arg(args):
     return mode, input_file, output_file, key
 
 def main():
-    mode, intput_file, output_file, key = procces_arg(sys.argv)
+    mode, input_file, output_file, key = process_arg(sys.argv)
 
     #validate the key
     try:
-        file_size = validate_key(key, intput_file) #implement this to check the file size vs key
+        file_size = validate_key(key, input_file) #implement this to check the file size vs key
     except InvalidKeyException as e:
         print(f"Invalid key: {e}")
         sys.exit(1)
     except FileNotFoundError:
-        print(f"Input File {intput_file} not found")
+        print(f"Input File {input_file} not found")
         sys.exit(1)
 
     #encrypt or decrypt
     try:
         if mode == "-e":
-            encrypt(intput_file, output_file, key)
-            print(f"File {intput_file} encrypted to {output_file}")
+            encrypt(input_file, output_file, key)
+            print(f"File {input_file} encrypted to {output_file}")
         elif mode:
-            decrypt(intput_file, output_file, key)
-            print(f"File {intput_file} decrypted to {output_file}")
+            decrypt(input_file, output_file, key)
+            print(f"File {input_file} decrypted to {output_file}")
     except Exception as e:
         print(f"Error during {'encryption' if mode == '-e' else 'decryption'}: {e}")
         sys.exit(1)
