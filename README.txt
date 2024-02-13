@@ -1,0 +1,1 @@
+This project implements a simple transposition cipher for encrypting and decrypting text files. It's a command-line Python application that scrambles the contents of a file based on a provided numeric key, making the original text unreadable without knowledge of the correct key to decrypt it.
