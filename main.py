@@ -1,3 +1,7 @@
+#Mihir Katyal
+#mkatyal@uci.edu
+#19099879
+
 import sys
 from key_validation import validate_key, InvalidKeyExecption
 from crypto import encrypt, decrypt
