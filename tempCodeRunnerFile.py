@@ -3,10 +3,10 @@
 #19099879
 
 import sys
-from key_validation import validate_key, InvalidKeyException  # Corrected the exception name
+from key_validation import validate_key, InvalidKeyExecption
 from crypto import encrypt, decrypt
 
-def process_arg(args):
+def procces_arg(args):
     if len(args) != 5:
         print("Usage: python main.py -e/-d input_file output_file key")
         sys.exit(1)
@@ -32,7 +32,7 @@ def main():
     #validate the key
     try:
         file_size = validate_key(key, intput_file) #implement this to check the file size vs key
-    except InvalidKeyException as e:
+    except InvalidKeyExecption as e:
         print(f"Invalid key: {e}")
         sys.exit(1)
     except FileNotFoundError:
