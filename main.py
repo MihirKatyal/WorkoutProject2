@@ -34,3 +34,15 @@ def main():
     except FileNotFoundError:
         print(f"Input File {intput_file} not found")
         sys.exit(1)
+
+    #encrypt or decrypt
+    try:
+        if mode == "-e":
+            encrypt(intput_file, output_file, key)
+            print(f"File {intput_file} encrypted to {output_file}")
+        elif mode:
+            decrypt(intput_file, output_file, key)
+            print(f"File {intput_file} decrypted to {output_file}")
+    except Exception as e:
+        print(f"Error during {'encryption' if mode == '-e' else 'decryption'}: {e}")
+        sys.exit(1)
